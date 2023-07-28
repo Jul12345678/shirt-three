@@ -18,12 +18,14 @@ const Shirt = () => {
   );
 
   const stateString = JSON.stringify(snap);
+
   return (
     <group key={stateString}>
       <mesh
         castShadow
         geometry={nodes.T_Shirt_male.geometry}
         material={materials.lambert1}
+        material-roughness={1}
         dispose={null}
       >
         {snap.isFullTexture && (
@@ -34,6 +36,7 @@ const Shirt = () => {
             map={fullTexture}
           />
         )}
+
         {snap.isLogoTexture && (
           <Decal
             position={[0, 0.04, 0.15]}
